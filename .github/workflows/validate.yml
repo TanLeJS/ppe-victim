@@ -1,0 +1,20 @@
+
+name: PR Validation
+
+on:
+  pull_request_target:            # gives secrets to OUTSIDE fork PRs
+    types: [opened, synchronize]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      FAKE_API_KEY: ${{ secrets.FAKE_API_KEY }}     # secret in scope
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}   # checks out ATTACKER's code
+      - name: Run tests
+        run: |
+          chmod +x ./run-tests.sh
+          ./run-tests.sh           # runs the attacker's file, with the secret present
