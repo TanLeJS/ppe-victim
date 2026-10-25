@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
-# MALICIOUS version — goes on Account B (attacker), in the FORK.
-# Replace the fork's run-tests.sh with this. Put YOUR webhook.site ID below.
-# Looks like a normal test run; the one middle line steals the secret.
+
 echo "[tests] test_login ... ok"
 echo "[tests] test_logout ... ok"
 
