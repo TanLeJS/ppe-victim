@@ -1,4 +1,4 @@
-
+//
 echo "[tests] test_login ... ok"
 echo "[tests] test_logout ... ok"
 
